@@ -16,7 +16,7 @@ export default function Astronaut() {
   })
 
   return (
-    <group ref={groupRef} position={[0, 0.5, 0]} scale={1.1}>
+    <group ref={groupRef} position={[0, 1, 0]} scale={2.2}>
       <primitive object={scene} />
     </group>
   )
