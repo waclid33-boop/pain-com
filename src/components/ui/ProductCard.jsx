@@ -9,7 +9,7 @@
 
 import { useRef, useEffect } from 'react'
 
-export default function ProductCard({ name, description, price, emoji, index }) {
+export default function ProductCard({ name, description, price, emoji, image, index }) {
   const cardRef = useRef()
 
   useEffect(() => {
@@ -124,13 +124,33 @@ export default function ProductCard({ name, description, price, emoji, index }) 
         borderRight: '1px solid var(--color-gold)',
       }} />
 
-      {/* Emoji icon */}
+      {/* Product image */}
       <div style={{
-        fontSize: '52px',
+        width: '100%',
+        height: '200px',
         marginBottom: '28px',
-        filter: 'drop-shadow(0 0 20px rgba(201,168,76,0.5))',
+        overflow: 'hidden',
+        position: 'relative',
       }}>
-        {emoji}
+        <img
+          src={image}
+          alt={name}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            filter: 'brightness(0.85) contrast(1.1)',
+            transition: 'transform 0.6s ease',
+          }}
+          onMouseEnter={e => e.target.style.transform = 'scale(1.05)'}
+          onMouseLeave={e => e.target.style.transform = 'scale(1)'}
+        />
+        {/* Gold overlay */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.6) 100%)',
+        }} />
       </div>
 
       {/* Product number */}
