@@ -1,9 +1,8 @@
 'use client'
 
-import ScrollScene from './ScrollScene'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
-import { Stars, Preload } from '@react-three/drei'
+import { Stars, Preload, Environment } from '@react-three/drei'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import * as THREE from 'three'
 
@@ -12,7 +11,7 @@ import ChocolateOcean    from './ChocolateOcean'
 import GoldenParticles   from './GoldenParticles'
 import AtmosphericFog    from './AtmosphericFog'
 import FloatingPastries  from './FloatingPastries'
-import CameraRig         from './CameraRig'
+import ScrollScene       from './ScrollScene'
 import Astronaut         from './Astronaut'
 import AstronautLights   from './AstronautLights'
 
@@ -72,15 +71,13 @@ export default function Scene() {
         <GoldenParticles count={typeof window !== 'undefined' && window.innerWidth < 768 ? 1000 : 3000} />
         <AtmosphericFog />
         <FloatingPastries />
-
-        {/* Astronaut — center stage */}
         <Astronaut />
 
         <EffectComposer>
           <Bloom
-            intensity={1.5}
-            luminanceThreshold={0.4}
-            luminanceSmoothing={0.85}
+            intensity={0.8}
+            luminanceThreshold={0.6}
+            luminanceSmoothing={0.95}
             mipmapBlur
           />
         </EffectComposer>

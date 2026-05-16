@@ -6,7 +6,7 @@ import { useGLTF } from '@react-three/drei'
 
 export default function Astronaut() {
   const groupRef = useRef()
-  const { scene } = useGLTF('/models/astronaut.glb')
+  const { scene } = useGLTF('/models/scene.gltf')
 
   useFrame((state) => {
     const time = state.clock.elapsedTime
@@ -16,10 +16,10 @@ export default function Astronaut() {
   })
 
   return (
-    <group ref={groupRef} position={[0, 1, 0]} scale={2.2}>
+    <group ref={groupRef} position={[0, -1, -2]} scale={0.03}>
       <primitive object={scene} />
     </group>
   )
 }
 
-useGLTF.preload('/models/astronaut.glb')
+useGLTF.preload('/models/scene.gltf')
