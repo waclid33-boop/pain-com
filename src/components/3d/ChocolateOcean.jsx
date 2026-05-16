@@ -37,7 +37,7 @@ export default function ChocolateOcean() {
         More segments = more vertices = smoother waves
         200 x 200 units — a vast ocean
       */}
-      <planeGeometry args={[200, 200, 128, 128]} />
+      <planeGeometry args={[200, 200, 64, 64]} />
 
       <shaderMaterial
         uniforms={uniforms}

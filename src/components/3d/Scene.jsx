@@ -24,7 +24,7 @@ function GlobalLights() {
         intensity={2}
         color="#FFE8B0"
         castShadow
-        shadow-mapSize={[2048, 2048]}
+        shadow-mapSize={[512, 512]}
       />
       <pointLight position={[0, -8, 0]}    intensity={4}   color="#3B1A08" distance={60} />
       <pointLight position={[-25, 8, -15]} intensity={2}   color="#1a0533" distance={80} />
@@ -44,7 +44,6 @@ export default function Scene() {
         toneMapping: THREE.ACESFilmicToneMapping,
         toneMappingExposure: 1.2,
       }}
-      shadows
       style={{
         position: 'fixed',
         top: 0, left: 0,
@@ -61,14 +60,14 @@ export default function Scene() {
         <Stars
           radius={300}
           depth={80}
-          count={5000}
+          count={2000}
           factor={4}
           saturation={0.3}
           fade
           speed={0.3}
         />
         <ChocolateOcean />
-        <GoldenParticles count={typeof window !== 'undefined' && window.innerWidth < 768 ? 1000 : 3000} />
+        <GoldenParticles count={typeof window !== 'undefined' && window.innerWidth < 768 ? 500 : 3000} />
         <AtmosphericFog />
         <FloatingPastries />
         <Astronaut />
